@@ -1,6 +1,7 @@
 'use strict'
 
 const token = localStorage.getItem('accessToken');
+const dataForecastSummary = localStorage.getItem('ForecastSummary');
 const dataForecastCurrent = '{"errorMsg": false,"data": {"url_link": "https://surfcaptain.com/forecast/delaware","forecast_title": "Delaware","low_tide": "7:40pm","high_tide": "1:23pm","atmp": 43,"wind_dir": "SE","wind_spd": "11 &rarr; 16mph","buoy": "44089","buoy_data": "4.3 ft @ 12sec","sea_temp": 49,"wetsuit": "5/3, Boots/Gloves(5)","now_surf": "Surf conditions are 3-4+ ft and semiclean/textured right now"}}'
 localStorage.setItem('ForecastCurrent', dataForecastCurrent);
 
@@ -69,7 +70,7 @@ function getForecastSummary() {
     })
         .then(response => response.json())
         .then(data => {
-            let dataForecastSummary = data;
+            const dataForecastSummary = data;
             localStorage.setItem('ForecastSummary', dataForecastSummary);
             const status = document.querySelector('#dot');
             if (dataForecastSummary.data.forecast_days[0].am_cond === "clean") {
