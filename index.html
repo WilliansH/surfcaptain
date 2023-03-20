@@ -11,7 +11,7 @@
 <body>
     <div id="widget">
         <div id="title">
-            <div class="dark-text inline"> widget title</div>
+            <div class="dark-text inline" id="widget-title"></div>
             <div id="logo-name" class="inline">
                 <a href="https://surfcaptain.com/">
                     <img src="Images/sc_logo_horizontal_blue.svg" width="200">
@@ -19,50 +19,57 @@
             </div>
         </div>
         <div id="subtitle-box" align="center">
-            <div class="inline green-dot" id="dot"></div>
-            <span class="inline" id="">Widget subtitle</span>
+            <div class="inline" id="dot"></div>
+            <a target="_blank" class="inline" id="widget-subtitle"></a>
         </div>
         <div id="container">
             <div class="item">
                 <div class="first-row">
 
-                    <div class="icon inline"></div>
+                    <div class="icon inline">
+                        <img id="weather-icon" width="37">
+                    </div>
                     <div class="inline item-title">WEATHER</div>
                 </div>
-                <div class="item-subtitle">43 º 5/4+, Boots/Gloves(5+) 43 º 5/4+, Boots/Gloves(5+) 43 º 5/4+,
-                </div>
+                <div class="item-subtitle" id="weather"></div>
             </div>
             <div class="item">
                 <div class="first-row">
 
-                    <div class="icon inline"></div>
+                    <div class="icon inline svg-icon">
+                        <img src="./Images/tide.svg" width="20">
+                    </div>
                     <div class="inline item-title">LOW / HIGH TIDE</div>
                 </div>
-                <div class="item-subtitle">43 º 5/4+, Boots/Gloves(5+) 43 º 5/4+, Boots/Gloves(5+) 43 º 5/4+,
+                <div class="item-subtitle" id="tide">
                 </div>
             </div>
             <div class="item">
                 <div class="first-row">
 
-                    <div class="icon inline"></div>
-                    <div class="inline item-title">BUOY</div>
+                    <div class="icon inline svg-icon">
+                        <img src="./Images/buoy.svg" width="20">
+                    </div>
+                    <div class="inline item-title">BUOY <span id="buoy-title"></span></div>
                 </div>
-                <div class="item-subtitle">43 º 5/4+, Boots/Gloves(5+) 43 º 5/4+, Boots/Gloves(5+) 43 º 5/4+,
-                </div>
+                <div class="item-subtitle" id="buoy-data"></div>
             </div>
             <div class="item">
                 <div class="first-row">
 
-                    <div class="icon inline"></div>
+                    <div class="icon inline svg-icon">
+                        <img src="./Images/waves.svg" width="20">
+                    </div>
                     <div class="inline item-title">WATER TEMP</div>
                 </div>
-                <div class="item-subtitle">43 º 5/4+, Boots/Gloves(5+) 43 º 5/4+, Boots/Gloves(5+) 43 º 5/4+,
+                <div class="item-subtitle" id="w-temp">
                 </div>
             </div>
         </div>
     </div>
 
 </body>
+<script src="hash_map_images.js"></script>
 <script src="services/surf-widget.services.js"></script>
 
 </html>

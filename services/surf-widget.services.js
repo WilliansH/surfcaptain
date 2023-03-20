@@ -22,8 +22,11 @@ function ready() {
     getToken();
     if (ensureParams()) {
         if (didRecentlyFetch() && doesExistSlug()) {
-            // render();
-            alert('we are on render')
+            let current = JSON.parse(localStorage.getItem('Current'))
+            let summary = JSON.parse(localStorage.getItem('Summary'))
+            renderCurrent(current);
+            renderSummary(summary);
+
         } else {
             fetchData();
         }
@@ -65,7 +68,7 @@ function fetchData() {
         })
             .then(response => response.json())
             .then(data => {
-
+                alert('funca')
                 let dataCurrent = data.data;
                 if (data.error) {
                     alert('An error has occurred, please verify the url is correct.');
@@ -95,14 +98,14 @@ function fetchData() {
 
 
 function parseDataCurrent(dataCurrent) {
-
+    alert('pdc')
     if (dataCurrent.error) {
         alert('An error hadataCurrents occurred, please verify the url is correct.');
     } else {
         const currentData = JSON.parse(localStorage.getItem('Current')) || {};
         const newDataCurrent = { ...currentData, ...dataCurrent };
         localStorage.setItem('Current', JSON.stringify(newDataCurrent));
-        //renderCurrent();
+        renderCurrent(newDataCurrent);
     }
 }
 
@@ -114,46 +117,49 @@ function parseDataSummary(dataSummary) {
         const summaryData = JSON.parse(localStorage.getItem('Summary')) || {};
         const newDataSummary = { ...summaryData, ...dataSummary };
         localStorage.setItem('Summary', JSON.stringify(newDataSummary));
-        //renderSummary();
+        renderSummary(newDataSummary);
     }
+}
+function setDotColor(dataForecastSummary) {
+
+    const conditions_color = {
+        clean: 'green',
+        choppy: 'red',
+        fair: 'blue'
+    }
+    let hour = new Date().getHours();
+    let meridiem
+    if (hour >= 12) {
+        meridiem = 'pm_cond'
+    } else {
+        meridiem = 'am_cond'
+    }
+    let condition = dataForecastSummary.forecast_days[0][meridiem]
+    let color = conditions_color[condition]
+
+    document.querySelector('#dot').classList.add(color + '-dot')
 }
 
 function renderSummary(dataForecastSummary) {
+    document.querySelector('#widget-title').innerHTML = dataForecastSummary.forecast_title
+    setDotColor(dataForecastSummary)
+    let icon_name = dataForecastSummary.forecast_days[0].wx_icon
+    document.querySelector('#weather-icon').src = images[icon_name]
 
-    const jsonDataCurrent = JSON.parse(dataForecastCurrent);
-    console.log("Current", jsonDataCurrent);
-    let condition = document.querySelector('#header-text')
-    let temp = document.querySelector('#weather-info')
-    let lowHigh = document.querySelector('#low-high-info')
-    let buoyNumber = document.querySelector('#buoy-number')
-    let buoyInfo = document.querySelector('#buoy-info')
-    let waterInfo = document.querySelector('#water-info')
-
-    waterInfo.innerHTML = jsonDataCurrent.data.sea_temp + "°" + "  " + jsonDataCurrent.data.wetsuit;
-    buoyInfo.innerHTML = jsonDataCurrent.data.buoy_data;
-    buoyNumber.innerHTML = "BUOY" + " " + jsonDataCurrent.data.buoy;
-    lowHigh.innerHTML = jsonDataCurrent.data.low_tide + "  " + jsonDataCurrent.data.high_tide;
-    condition.innerHTML = jsonDataCurrent.data.now_surf;
-    temp.innerHTML = jsonDataCurrent.data.atmp + "°" + " " + jsonDataCurrent.data.wind_spd;
 }
 
 function renderCurrent(dataForecastCurrent) {
 
-    const jsonDataCurrent = JSON.parse(dataForecastCurrent);
-    console.log("Current", jsonDataCurrent);
-    let condition = document.querySelector('#header-text')
-    let temp = document.querySelector('#weather-info')
-    let lowHigh = document.querySelector('#low-high-info')
-    let buoyNumber = document.querySelector('#buoy-number')
-    let buoyInfo = document.querySelector('#buoy-info')
-    let waterInfo = document.querySelector('#water-info')
+    let subtitle = document.querySelector('#widget-subtitle')
+    subtitle.innerHTML = dataForecastCurrent.now_surf
+    subtitle.href = dataForecastCurrent.url_link
 
-    waterInfo.innerHTML = jsonDataCurrent.data.sea_temp + "°" + "  " + jsonDataCurrent.data.wetsuit;
-    buoyInfo.innerHTML = jsonDataCurrent.data.buoy_data;
-    buoyNumber.innerHTML = "BUOY" + " " + jsonDataCurrent.data.buoy;
-    lowHigh.innerHTML = jsonDataCurrent.data.low_tide + "  " + jsonDataCurrent.data.high_tide;
-    condition.innerHTML = jsonDataCurrent.data.now_surf;
-    temp.innerHTML = jsonDataCurrent.data.atmp + "°" + " " + jsonDataCurrent.data.wind_spd;
+    document.querySelector('#weather').innerHTML = dataForecastCurrent.atmp + 'º ' + dataForecastCurrent.wind_spd
+    document.querySelector('#tide').innerHTML = dataForecastCurrent.low_tide + ' ' + dataForecastCurrent.high_tide
+    document.querySelector('#buoy-title').innerHTML = dataForecastCurrent.buoy
+    document.querySelector('#buoy-data').innerHTML = dataForecastCurrent.buoy_data
+    document.querySelector('#w-temp').innerHTML = dataForecastCurrent.sea_temp + ' ' + dataForecastCurrent.wetsuit
+
 }
 
 

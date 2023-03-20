@@ -9,6 +9,8 @@
 }
 
 #title {
+    display: flex;
+    align-items: center;
     font-weight: bold;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -26,6 +28,16 @@
 
 }
 
+#widget-subtitle {
+    color: black;
+    text-decoration: none;
+}
+
+#widget-title {
+    width: 800px;
+    line-height: 100%;
+}
+
 #widget {
     background: #eff4f7;
     padding-left: 5px;
@@ -39,13 +51,15 @@
 }
 
 #subtitle-box {
-
+    padding-top: 2px;
+    background: white;
     align-items: center;
 }
 
 #logo-name {
-    margin-left: 550px;
+
     font-weight: bold;
+    margin-right: 10px;
     font-size: 20px;
     line-height: 100%;
 
@@ -96,8 +110,12 @@
     font-size: 11px;
 }
 
-.dark-dot {
-    background: #225481;
+.blue-dot {
+    background: #2274bc;
+}
+
+.red-dot {
+    background: #ac4e4e;
 }
 
 .green-dot {
@@ -107,4 +125,9 @@
 .first-row {
     display: flex;
     align-items: center;
+}
+
+.svg-icon {
+    display: flex;
+    justify-content: center;
 }
