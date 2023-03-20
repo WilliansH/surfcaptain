@@ -9,64 +9,52 @@
 </head>
 
 <body>
-    <div id="background">
-        <div id="title"></div>
-        <div id="container">
-            <div id="dot"></div>
-            <div id="header-text"></div>
-            <div class="item">
-                <div class="icon">
-                    <img src="images/wi-day-sunny.svg" alt="">
-                </div>
-                <div class="info-container">
-                    <div class="title">WEATHER</div>
-                    <div id="weather-info" class="description">Descripcion</div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="icon">
-                    <img class="image-icon" src="images/tide.svg" alt="">
-                </div>
-                <div class="info-container">
-                    <div class="title">LOW / HIGH TIDE</div>
-                    <div id="low-high-info" class="description"></div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="icon">
-                    <img class="image-icon" src="images/buoy.svg" alt="">
-                </div>
-                <div class="info-container">
-                    <div id="buoy-number" class="title"></div>
-                    <div id="buoy-info" class="description"></div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="icon">
-                    <img src="images/waves.svg" alt="">
-                </div>
-                <div class="info-container">
-                    <div class="title">WATER TEMP</div>
-                    <div id="water-info" class="description"></div>
-                </div>
-            </div>
-        </div>
-        <div id="footer">
-            <div id="logo">
+    <div id="widget">
+        <div id="title">
+            <div class="dark-text inline"> widget title</div>
+            <div id="logo-name" class="inline">
                 <a href="https://surfcaptain.com/">
-                    <img class="image-footer" src="images/sc_logo_horizontal_blue.svg">
+                    <img src="Images/sc_logo_horizontal_blue.svg" width="200">
                 </a>
             </div>
-            <div id="footer-text">
-                <a href="https://surfcaptain.com/services/widgets" class="text">Add Widget</a>
+        </div>
+        <div id="container">
+            <div id="">
+                <span class="" id="">Widget subtitle</span>
+                <div class="green-dot" id="dot"></div>
+            </div>
+            <div class="item">
+                <div class="icon inline"></div>
+                <div class="inline">
+                    <div class="item-title">WEATHER</div>
+                    <div class="item-subtitle">Subtitle</div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="icon inline"></div>
+                <div class="inline">
+                    <div class="item-title">LOW / HIGH TIDE</div>
+                    <div class="item-subtitle">Subtitle</div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="icon inline"></div>
+                <div class="inline">
+                    <div class="item-title">BUOY</div>
+                    <div class="item-subtitle">Subtitle</div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="icon inline"></div>
+                <div class="inline">
+                    <div class="item-title">WATER TEMP</div>
+                    <div class="item-subtitle">Subtitle</div>
+                </div>
             </div>
         </div>
     </div>
 
-
-    <script src="services/surf-widget.services.js"></script>
-
-
 </body>
+<script src="services/surf-widget.services.js"></script>
 
 </html>
