@@ -19,11 +19,10 @@
 #container {
     background: white;
     height: 136px;
-    padding-left: 5px;
-    padding-right: 5px;
+    padding-left: 2px;
+    padding-right: 2px;
     display: flex;
-    padding-top: 10px;
-    padding-bottom: 5px;
+    padding-bottom: 8px;
 
 }
 
@@ -40,8 +39,7 @@
 }
 
 #subtitle-box {
-    padding-top: 00px;
-    padding-bottom: 20px;
+
     align-items: center;
 }
 
@@ -68,27 +66,34 @@
 .item {
     margin-top: 20px;
     background-color: #eff4f7;
-    padding: 12px;
+    padding: 6px;
     padding-top: 10px;
     padding-bottom: 6px;
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: 2px;
+
+    margin-right: 2px;
     border-radius: 8px 8px 8px 8px;
     width: 800px;
-    overflow: auto;
 }
 
 .icon {
     border-radius: 8px 8px 8px 8px;
-    width: 40px;
-    height: 40px;
+    width: 37px;
+    height: 37px;
     background: #a8c5d5;
-    margin-right: 10px;
+
 }
 
 .item-title {
     color: #5a778a;
-    margin-bottom: 10px
+    font-size: 14px;
+    margin-left: 10px;
+    line-height: 100%;
+}
+
+.item-subtitle {
+    margin-top: 3px;
+    font-size: 11px;
 }
 
 .dark-dot {
@@ -97,4 +102,9 @@
 
 .green-dot {
     background: #4ea151;
+}
+
+.first-row {
+    display: flex;
+    align-items: center;
 }
